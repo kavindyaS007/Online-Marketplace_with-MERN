@@ -15,18 +15,18 @@ const ProductList = () => {
 
   const [filter, setFilter] = useState("");
 
-  // const filteredProducts = products.filter((product) =>
-  //   product.productName.toLowerCase().includes(filter.toLowerCase())
-  // );
+  const filteredProducts = products.filter((product) =>
+    product.productName.toLowerCase().includes(filter.toLowerCase())
+  );
 
   return (
     <div className="container">
-      {/* <input
+      <input
         type="text"
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
         placeholder="Search by product name"
-      /> */}
+      />
     <div className="row">
       <table className="col-sm table table-striped">
         <thead>
@@ -41,7 +41,7 @@ const ProductList = () => {
         </thead>
         <tbody>
           {products &&
-            products.map((product) => (
+            filteredProducts.map((product) => (
               <tr>
                 <td>{product.productName}</td>
                 <td>{product.description}</td>
